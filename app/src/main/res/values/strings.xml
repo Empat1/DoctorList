@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">DoctorList</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="record">Записаться на прием</string>
+    <string name="info">Инфо</string>
+    <string name="Doctor">Врачи</string>
+    <string name="children_practice">«Детская практика»</string>
+    <string name="InMain">на главную</string>
+
+    <array name="spinner">
+        <item>Ожидаем загрузки</item>
+    </array>
+</resources>
