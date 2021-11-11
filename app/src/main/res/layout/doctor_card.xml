@@ -24,23 +24,13 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/box"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="50dp"
-                android:layout_margin="5dp"
-                android:elevation="10dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-
-                tools:srcCompat="@tools:sample/avatars" />
-            </androidx.cardview.widget.CardView>
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/doctor_image"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_margin="5dp"
+                    android:src="@mipmap/defult"/>
 
             <TextView
                 android:id="@+id/titleTextView"

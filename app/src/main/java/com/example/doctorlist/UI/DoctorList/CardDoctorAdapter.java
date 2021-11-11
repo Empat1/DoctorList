@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -26,25 +25,27 @@ import com.example.doctorlist.UI.MainActivity;
 
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class CardDoctorAdapter extends RecyclerView.Adapter<CardDoctorAdapter.CardDoctorHolder> {
 
     public class CardDoctorHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         CardView cardView;
-        ImageView photoDoctor;
         TextView title, specializationTextView, qualificationTextView;
         Button appointment, info;
         int nDoctor;
+        CircleImageView circleImageView;
 
         public CardDoctorHolder(@NonNull View itemView) {
             super(itemView);
             cardView = itemView.findViewById(R.id.doctorCardView);
-            photoDoctor = itemView.findViewById(R.id.imageView);
             title = itemView.findViewById(R.id.titleTextView);
             specializationTextView = itemView.findViewById(R.id.specializationView);
             qualificationTextView = itemView.findViewById(R.id.qualification);
             appointment = itemView.findViewById(R.id.appointmentButton);
             info = itemView.findViewById(R.id.infoButton);
+            circleImageView = itemView.findViewById(R.id.doctor_image);
 
             info.setOnClickListener(this);
         }
@@ -94,11 +95,8 @@ public class CardDoctorAdapter extends RecyclerView.Adapter<CardDoctorAdapter.Ca
         holder.specializationTextView.setText(doctor.getSpecialization());
         holder.qualificationTextView.setText(doctor.getQualification());
 
-        if(doctor.getPhoto().equals("-1")) {
-            holder.photoDoctor.setImageResource(R.mipmap.defult);
-        }else{
-            holder.photoDoctor.setImageBitmap(decodeBase64(doctor.getPhoto()));
-        }
+        if(!doctor.getPhoto().equals("-1"))
+            holder.circleImageView.setImageBitmap(decodeBase64(doctor.getPhoto()));
     }
 
     private Bitmap decodeBase64(String photo){

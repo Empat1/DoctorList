@@ -19,10 +19,12 @@ import com.example.doctorlist.R;
 
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class InfoFragment extends Fragment {
 
     private TextView name,qualification,description , services;
-    private ImageView imageView;
+    private CircleImageView profileImage;
     private Client client = Client.getClient();
     private int doctorId;
 
@@ -43,7 +45,7 @@ public class InfoFragment extends Fragment {
         qualification = root.findViewById(R.id.qualification);
         description = root.findViewById(R.id.description);
         services = root.findViewById(R.id.services);
-        imageView = root.findViewById(R.id.imageView2);
+        profileImage = root.findViewById(R.id.profile_image);
 
         setDataInView();
 
@@ -59,11 +61,9 @@ public class InfoFragment extends Fragment {
         description.setText(duplicatedString(doctor.getDesc()));
         services.setText(duplicatedString(doctor.getServices()));
 
-        if(doctor.getPhoto().equals("-1")){
-            imageView.setImageResource(R.mipmap.defult);
-        }else{
-            imageView.setImageBitmap(decodeBase64(doctor.getPhoto()));
-        }
+        if(!doctor.getPhoto().equals("-1"))
+            profileImage.setImageBitmap(decodeBase64(doctor.getPhoto()));
+
     }
 
     private String duplicatedString(String s){
