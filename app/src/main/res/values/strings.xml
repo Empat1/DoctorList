@@ -7,6 +7,7 @@
     <string name="Doctor">Врачи</string>
     <string name="children_practice">«Детская практика»</string>
     <string name="InMain">на главную</string>
+    <string name="doctors">Врачи</string>
 
     <array name="spinner">
         <item>Ожидаем загрузки</item>

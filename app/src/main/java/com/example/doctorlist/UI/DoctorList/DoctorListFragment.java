@@ -17,6 +17,7 @@ import android.widget.Spinner;
 
 import com.example.doctorlist.Client.Client;
 import com.example.doctorlist.Client.Doctor;
+import com.example.doctorlist.Client.MainFragment;
 import com.example.doctorlist.R;
 import com.example.doctorlist.UI.InfoFragment;
 import com.example.doctorlist.UI.MainActivity;
@@ -138,7 +139,9 @@ public class DoctorListFragment extends Fragment implements AdapterView.OnItemSe
     @Override
     public void onClick(View v) {
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        fragmentManager.beginTransaction().remove(this).addToBackStack(null)
+        Fragment fragment = new MainFragment();
+
+        fragmentManager.beginTransaction().replace(R.id.fragmentContainerView,  fragment).addToBackStack(null)
                 .commit();
     }
 }
